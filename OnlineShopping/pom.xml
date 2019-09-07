@@ -34,6 +34,14 @@
 
 	<dependencies>
 
+		<!-- Linking Backend Project -->
+		<dependency>
+			<groupId>com.ak</groupId>
+			<artifactId>OnlineShoppingBackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+
 		<!-- spring Jars -->
 
 		<dependency>
