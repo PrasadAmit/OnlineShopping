@@ -14,6 +14,7 @@
 
 <head>
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -26,25 +27,24 @@
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.css" rel="stylesheet">
+<%-- <link href="${css}/bootstrap.min.css" rel="stylesheet"> --%>
 
 <!-- Bootstrap superHero theme -->
-<link href="${css}/bootstrap-litera-theme.css" rel="stylesheet">
+<link href="${css}/bootstrap-cerulean-theme.css" rel="stylesheet">
 
-
-<!-- Add custom CSS here -->
+<!-- Custom CSS here -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
 
 <body>
-
++
 	<div class='wrapper'>
 
 		<!-- Navigation   -->
 		<%@include file="./shared/navbar.jsp"%>
 
 		<!-- Page Content -->
-
 		<div class='content'>
 
 			<!-- Loading Home Page Content -->
@@ -61,21 +61,24 @@
 			<c:if test="${userClickContact == true}">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!--Loading AllProducts Page on User Click  -->
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-
-		</div>
+			
+ 		</div>
 
 		<!-- Footers Comes here -->
 		<%@include file="./shared/footer.jsp"%>
 
 		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
 		<script src="${js}/jquery-1.10.2.js"></script>
-		<script src="${js}/bootstrap.js"></script>
 
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/bootstrap.js"></script>
+		<script src="${js}/bootstrap.min.js"></script>
 
 		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>

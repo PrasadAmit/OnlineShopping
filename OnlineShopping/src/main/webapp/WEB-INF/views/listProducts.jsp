@@ -11,11 +11,12 @@
 		<!-- to display actual product -->
 		<div class="col-md-9">
 
-			<!--Addded breadcrumb component   -->
+			<!--Added BreadCrumb Component   -->
+			
 			<div class="row">
 				<div class="col-lg-12">
 
-					<c:if test="${userClickAllProducts == true}">
+						<c:if test="${userClickAllProducts == true}">
 						<ol class="breadcrumb">
 						
 							<li><a href="${contextRoot}/home">Home</a></li>
@@ -25,18 +26,17 @@
 					</c:if>
 
 					<c:if test="${userClickCategoryProducts == true}">
-						<ol class="breadcrumb"> 
-
+						<ol class="breadcrumb">
+						
 							<li><a href="${contextRoot}/home">Home</a></li>
 							<li class="active">Category</li>
-							<li class="active">${cateogry.name}</li>
+							<li class="active">${category.name}</li>
+						
 						</ol>
-					</c:if>
-
-				</div>
-
+					</c:if>			
 			</div>
 		</div>
 
+		</div>
 	</div>
 </div>
