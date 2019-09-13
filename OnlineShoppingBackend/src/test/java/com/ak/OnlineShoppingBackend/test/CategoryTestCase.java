@@ -22,18 +22,18 @@ public class CategoryTestCase {
 		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
 
-	/*@Test
+	@Test
 	public void testaddCategory() {
 		category = new Category();
 		//category.setId(5);
-		category.setName("TV");
-		category.setDescription("This is television");
-		category.setImageURL("Cat_5.jpg");
+		category.setName("Laptop");
+		category.setDescription("This is Laptop");
+		category.setImageURL("Cat_6.jpg");
 
 		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
 	}
-*/
-/*	@Test
+
+	/*@Test
 	public void testGetCategory() {
 
 		category = categoryDAO.get(1);
@@ -46,15 +46,16 @@ public class CategoryTestCase {
 /*	@Test
 	public void testupdateCategory() {
 
-		category = categoryDAO.get(2);
+		category = categoryDAO.get(4);
 		//category.setName("Mobile");
+		//category.setActive(false);
 		category.setDescription("This is Mobile");
 		assertEquals("Successfully updated a single category into the table!", true, categoryDAO.update(category));
 	}
-*/ 	 
-
+ 	 
+*/
 	
-	/*//delete the category
+/*	//delete the category
 	  @Test public void testDeleteCategory() {
 	  
 	  category = categoryDAO.get(2);
@@ -63,49 +64,68 @@ public class CategoryTestCase {
 	  	  
 	  }
 	 */
-	/*
-	  @Test public void testListCategory() {
+	
+	/*  @Test public void testListCategory() {
 	  assertEquals("Successfully fetched the list of categories from the table!",3,
 	  categoryDAO.list().size());
 	  
 	  }
-*/	 
+	*/ 
 
 /*	@Test
 	public void testCRUDCategory() {
 
-		// adding the category
-
+		// Adding the category
 		category = new Category();
-		//category.setId(4);
 		category.setName("Laptop");
 		category.setDescription("This is Laptop");
+		category.setImageURL("Cat_1.jpg");
+
+		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
+
+		category = new Category();
+		category.setName("Radio");
+		category.setDescription("This is Radio");
+		category.setImageURL("Cat_2.jpg");
+
+		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
+
+		category = new Category();
+		category.setName("TV");
+		category.setDescription("This is Television");
+		category.setImageURL("Cat_3.jpg");
+
+		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
+
+
+		category = new Category();
+		category.setName("Mobile");
+		category.setDescription("This is Mobile");
 		category.setImageURL("Cat_4.jpg");
 
 		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
 
 		category = new Category();
-		//category.setId(5);
-		category.setName("Television");
-		category.setDescription("This is Television");
+		category.setName("Pager");
+		category.setDescription("This is Pager");
 		category.setImageURL("Cat_5.jpg");
 
 		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
 
-		// fetching and updating  the category
-
-		category = categoryDAO.get(2);
-		category.setName("Laptop");
-		
+*/		// fetching and updating  the category
+/*
+		category = categoryDAO.get(3);
+		//category.setName("TV");
+		category.setActive(true);
 		assertEquals("Successfully updated a single category into the table!", true, categoryDAO.update(category));
 
 		//delete the category
-		assertEquals("Successfully deleted a single category into the table!", true, categoryDAO.delete(category));
+//		assertEquals("Successfully deleted a single category into the table!", true, categoryDAO.delete(category));
 
 		//fetching the list
-		assertEquals("Successfully fetched the list of categories from the table!", 1, categoryDAO.list().size());	
+		assertEquals("Successfully fetched the list of categories from the table!", 3, categoryDAO.list().size());	
 	
 	}
-
-*/	
+*/
+	
 }

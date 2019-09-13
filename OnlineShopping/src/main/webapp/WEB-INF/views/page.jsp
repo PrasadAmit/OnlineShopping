@@ -38,14 +38,14 @@
 </head>
 
 <body>
-+
-	<div class='wrapper'>
+
+	<div class="wrapper">
 
 		<!-- Navigation   -->
 		<%@include file="./shared/navbar.jsp"%>
 
 		<!-- Page Content -->
-		<div class='content'>
+		<div class="content">
 
 			<!-- Loading Home Page Content -->
 			<c:if test="${userClickHome == true}">

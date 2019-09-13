@@ -19,7 +19,7 @@ import com.mchange.v2.c3p0.DriverManagerDataSource;
 @EnableTransactionManagement
 public class HibernateConfig {
 
-	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/hbnetdb?useSSL=false";
+	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/spgdb?useSSL=false";
 	private final static String DATABASE_DRIVER="com.mysql.jdbc.Driver";
 	private final static String DATABASE_URSERNAME = "root";
 	private final static String DATABASE_PASSWORD = "root";
