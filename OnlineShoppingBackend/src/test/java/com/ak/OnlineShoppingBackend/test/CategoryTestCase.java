@@ -25,15 +25,14 @@ public class CategoryTestCase {
 	@Test
 	public void testaddCategory() {
 		category = new Category();
-		//category.setId(5);
-		category.setName("Laptop");
-		category.setDescription("This is Laptop");
-		category.setImageURL("Cat_6.jpg");
+		category.setName("Radio");
+		category.setDescription("This is Radio");
+		category.setImageURL("Cat_7.jpg");
 
 		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
 	}
 
-	/*@Test
+/*	@Test
 	public void testGetCategory() {
 
 		category = categoryDAO.get(1);
