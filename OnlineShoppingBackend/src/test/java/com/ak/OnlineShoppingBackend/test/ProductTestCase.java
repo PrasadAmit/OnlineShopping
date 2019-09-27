@@ -22,8 +22,8 @@ public class ProductTestCase {
 		context.refresh();
 		productDAO = (ProductDAO) context.getBean("productDAO");
 	}
-
-/*	@Test
+	/*
+	@Test
 	public void testCRUDProduct() {
 
 		// Adding the category
@@ -40,7 +40,7 @@ public class ProductTestCase {
 				true, productDAO.add(product));
 
 			
-		//reading and updating product
+				//reading and updating product
 		
 				product = productDAO.get(3);
 			// product.setName("Galexy S8");

@@ -22,7 +22,7 @@ public class ProductDAOImpl implements ProductDAO{
 	public Product get(int productId) {
 		try {
 		return sessionFactory
-				.getCurrentSession()
+ 			.getCurrentSession()
 				.get(Product.class, Integer.valueOf(productId));
 	}catch(Exception ex) {
 		ex.printStackTrace();
@@ -31,7 +31,6 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	
 	//list of product access
-
 	@Override
 	public List<Product> list() {
 			return sessionFactory
@@ -39,22 +38,21 @@ public class ProductDAOImpl implements ProductDAO{
 						.createQuery("FROM Product", Product.class)
 							.getResultList();
 		}
-		
-		
+				
 	//Insert product 
 	@Override
 	public boolean add(Product product) {
 		try {
 			sessionFactory
 					.getCurrentSession()
-						.saveOrUpdate(product);//persist(product);
+						.saveOrUpdate(product); //persist(product);
 			return true;
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 			return false;
 		}
-
+	
 	//Update Product
 	
 	@Override
@@ -62,14 +60,13 @@ public class ProductDAOImpl implements ProductDAO{
 		try {
 			sessionFactory
 					.getCurrentSession()
-						.update(product);
+						.saveOrUpdate(product); 
 			return true;
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 			return false;
 		}
-
 
 	@Override
 	public boolean delete(Product product) {
@@ -91,7 +88,6 @@ public class ProductDAOImpl implements ProductDAO{
 					.createQuery(selectActiveProducts, Product.class)
 						.setParameter("active", true)
 							.getResultList();
-	
 	}
 
 	@Override
@@ -103,7 +99,6 @@ public class ProductDAOImpl implements ProductDAO{
 						.setParameter("active", true)
 							.setParameter("categoryId", categoryId)
 								.getResultList();
-	
 	}
 
 	@Override
@@ -117,5 +112,4 @@ public class ProductDAOImpl implements ProductDAO{
 									.getResultList();
 	
 	}
-
 }

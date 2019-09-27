@@ -23,6 +23,8 @@
 
 <script>
 	window.menu = '${title}';
+
+	window.contextRoot = '${contextRoot}'
 </script>
 
 <!-- Bootstrap core CSS -->
@@ -32,7 +34,10 @@
 <!-- Bootstrap superHero theme -->
 <link href="${css}/bootstrap-cerulean-theme.css" rel="stylesheet">
 
-<!-- Custom CSS here -->
+<!-- DataTables Bootstrap -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- Custom CSS  -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
@@ -63,11 +68,22 @@
 			</c:if>
 
 			<!--Loading AllProducts Page on User Click  -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-			
- 		</div>
+
+			<!-- Showing Single Page on User Click  -->
+			<c:if test="${userClickShowProducts == true }">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+
+			<!-- Manage Product Page on User Click  -->
+			<c:if test="${userClickManageProducts == true }">
+				<%@include file="manageProducts.jsp"%>
+			</c:if>
+
+		</div>
 
 		<!-- Footers Comes here -->
 		<%@include file="./shared/footer.jsp"%>
@@ -76,9 +92,22 @@
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/jquery-1.10.2.js"></script>
 
+		<!--  JQuery Validator Plugin-->
+		<script src="${js}/jquery.validate.js"></script>
+
+
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/bootstrap.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+
+		<!--JQuery DataTables  Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!-- DataTables Bootstrap script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+
+		<!--  Bootbox  script -->
+		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>

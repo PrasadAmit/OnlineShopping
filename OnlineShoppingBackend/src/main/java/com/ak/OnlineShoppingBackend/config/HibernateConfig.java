@@ -29,7 +29,6 @@ public class HibernateConfig {
 	public DataSource getDataSource() throws Exception  {
 		//ComboPooledDataSource dataSource= new ComboPooledDataSource();
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		//BasicDataSource dataSource = new BasicDataSource();
 		// provide database connection information
 		dataSource.setDriverClass(DATABASE_DRIVER);
 		dataSource.setJdbcUrl(DATABASE_URL);
@@ -53,6 +52,7 @@ public class HibernateConfig {
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		return properties;
 	}
 

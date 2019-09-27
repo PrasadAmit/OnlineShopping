@@ -20,18 +20,16 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public List<Category> list() {
-		
-	String selectActiveCategory = "FROM Category WHERE active = :active" ;	
-		
-	Query query= sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
-	query.setParameter("active", true);
-	return query.getResultList();
+
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		query.setParameter("active", true);
+		return query.getResultList();
 	}
 
-	/*
-	 * Getting single category based on id
-	 */
-
+	//	Getting single category based on id
+	
 	@Override
 	public Category get(int id) {
 		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
@@ -40,9 +38,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public boolean add(Category category) {
 		try {
-			//add category to the database table
-			  sessionFactory.getCurrentSession().saveOrUpdate(category);
-			
+			// add category to the database table
+			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -50,9 +47,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 	}
 
-	/* Updating a single category
+	/*
+	 * Updating a single category
 	 */
-
 	@Override
 	public boolean update(Category category) {
 		try {
@@ -67,9 +64,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public boolean delete(Category category) {
-
 		category.setActive(false);
-
 		try {
 			// delete category to the database table
 			sessionFactory.getCurrentSession().update(category);

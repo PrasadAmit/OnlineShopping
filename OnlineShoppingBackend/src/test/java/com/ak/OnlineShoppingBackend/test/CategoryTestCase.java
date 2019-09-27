@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.ak.OnlineShoppingBackend.dao.CategoryDAO;
+import com.ak.OnlineShoppingBackend.dto.Cart;
 import com.ak.OnlineShoppingBackend.dto.Category;
+import com.ak.OnlineShoppingBackend.dto.User;
 
 public class CategoryTestCase {
 	private static AnnotationConfigApplicationContext context;
@@ -18,20 +20,20 @@ public class CategoryTestCase {
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.ak.OnlineShoppingBackend");
-		context.refresh();
+	 	context.refresh();
 		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
-
-	@Test
+	
+/*@Test
 	public void testaddCategory() {
 		category = new Category();
-		category.setName("Radio");
-		category.setDescription("This is Radio");
-		category.setImageURL("Cat_7.jpg");
+		category.setName("Laptop");
+		category.setDescription("This is Laptop");
+		category.setImageURL("Cat_6.jpg");
 
 		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
 	}
-
+*/
 /*	@Test
 	public void testGetCategory() {
 
@@ -39,7 +41,7 @@ public class CategoryTestCase {
 		assertEquals("Successfully fatched a single category from the table!", "Television", category.getName());
 	}
 */
-	/*
+/*
 	 * update the category data
 	 */
 /*	@Test
@@ -50,27 +52,21 @@ public class CategoryTestCase {
 		//category.setActive(false);
 		category.setDescription("This is Mobile");
 		assertEquals("Successfully updated a single category into the table!", true, categoryDAO.update(category));
-	}
- 	 
-*/
-	
+	}	 
+*/	
 /*	//delete the category
 	  @Test public void testDeleteCategory() {
 	  
 	  category = categoryDAO.get(2);
 	  assertEquals("Successfully deleted a single category into the table!", true,
-	  categoryDAO.delete(category));
-	  	  
-	  }
-	 */
-	
-	/*  @Test public void testListCategory() {
+	  categoryDAO.delete(category));	  	  
+	}
+ */
+/*    @Test public void testListCategory() {
 	  assertEquals("Successfully fetched the list of categories from the table!",3,
 	  categoryDAO.list().size());
-	  
 	  }
-	*/ 
-
+*/ 
 /*	@Test
 	public void testCRUDCategory() {
 
@@ -95,7 +91,6 @@ public class CategoryTestCase {
 		category.setImageURL("Cat_3.jpg");
 
 		assertEquals("Successfully added category inside the table!", true, categoryDAO.add(category));
-
 
 		category = new Category();
 		category.setName("Mobile");
@@ -126,5 +121,4 @@ public class CategoryTestCase {
 	
 	}
 */
-	
 }
