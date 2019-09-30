@@ -144,7 +144,6 @@ $(function(){
 // Data Table for Admin
 //-------------------------------
 
-
 var $adminProductsTable = $('#adminProductsTable');
 
 if($adminProductsTable.length){

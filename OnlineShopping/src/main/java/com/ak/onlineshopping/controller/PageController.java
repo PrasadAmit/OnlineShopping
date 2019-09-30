@@ -69,7 +69,6 @@ public class PageController {
 		return mav;
 	}
 
-	
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mav = new ModelAndView("page");
