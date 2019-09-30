@@ -1,5 +1,7 @@
 package com.ak.onlineshopping.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,10 +12,13 @@ import com.ak.OnlineShoppingBackend.dao.CategoryDAO;
 import com.ak.OnlineShoppingBackend.dao.ProductDAO;
 import com.ak.OnlineShoppingBackend.dto.Category;
 import com.ak.OnlineShoppingBackend.dto.Product;
+import com.ak.onlineshopping.exception.ProductNotFoundException;
 
 @Controller
 public class PageController {
 
+	private static final Logger logger=LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 
@@ -23,8 +28,10 @@ public class PageController {
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView("page");
-		mav.addObject("title", "Home");
+		mav.addObject("title","Home");
 
+		logger.info("Inside PageController index method  - INFO");
+		logger.debug("Inside PageController index method  - DEBUG");
 		// passing the list of categories
 		mav.addObject("categories", categoryDAO.list());
 		mav.addObject("userClickHome", true);
@@ -62,6 +69,7 @@ public class PageController {
 		return mav;
 	}
 
+	
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mav = new ModelAndView("page");
@@ -83,11 +91,16 @@ public class PageController {
 		return mav;
 	}
 
+	/*Viewing a single product */
+	
 	@RequestMapping(value="/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) {
+	public ModelAndView showSingleProducts(@PathVariable int id) throws ProductNotFoundException {
 		ModelAndView mav = new ModelAndView("page");
 		
 		Product  product = productDAO.get(id);
+		
+		//customised Exception
+		if(product==null) throw new ProductNotFoundException();
 		
 		//update the view count
 		product.setViews(product.getViews()+ 1);

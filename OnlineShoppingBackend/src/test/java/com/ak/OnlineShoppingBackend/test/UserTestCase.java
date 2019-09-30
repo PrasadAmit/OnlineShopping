@@ -26,8 +26,8 @@ public class UserTestCase {
 		context.refresh();
 		userDAO = (UserDAO) context.getBean("userDAO");
  		}
-/*	
-		@Test
+	
+/*		@Test
 		public void testAdd() {
 			user = new User();
 			user.setFirstName("Ram");
@@ -41,7 +41,7 @@ public class UserTestCase {
 			assertEquals("Failed to add user!",true, userDAO.addUser(user));
 
 			address = new Address();
-			address.setAddressLineOne("583/A, Suraj Nagar");
+			address.setAddressLineOne("202/B, Suraj Nagar");
 			address.setAddressLineTwo("ATM Layout");
 			address.setCity("Maysur");
 			address.setState("Chennai");
@@ -51,11 +51,11 @@ public class UserTestCase {
 
 			//link the user with the address using the user id
 			//address.setUserId(user.getId());
-			address.setUserId(user.getId());
+			
 			//add the user
 			assertEquals("Failed to add address!",true, userDAO.addAddress(address));
-
-			if(user.getRole().equals("USER")) {
+		}*/
+/*			if(user.getRole().equals("USER")) {
 			
 			//create a cart for this user
 			cart=new Cart();
@@ -86,8 +86,8 @@ public class UserTestCase {
 			}
 		}
 
-	}
 */
+		
 /*	@Test
 	public void testAdd() {
 			user = new User();

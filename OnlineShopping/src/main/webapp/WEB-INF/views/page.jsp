@@ -68,12 +68,11 @@
 			</c:if>
 
 			<!--Loading AllProducts Page on User Click  -->
-			<c:if
-				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 
-			<!-- Showing Single Page on User Click  -->
+			<!-- Showing Single Page on User Click show Product  -->
 			<c:if test="${userClickShowProducts == true }">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
@@ -81,6 +80,11 @@
 			<!-- Manage Product Page on User Click  -->
 			<c:if test="${userClickManageProducts == true }">
 				<%@include file="manageProducts.jsp"%>
+			</c:if>
+
+			<!-- Manage Cart Page on User Click  -->
+			<c:if test="${userClickShowCart== true }">
+				<%@include file="cart.jsp"%>
 			</c:if>
 
 		</div>

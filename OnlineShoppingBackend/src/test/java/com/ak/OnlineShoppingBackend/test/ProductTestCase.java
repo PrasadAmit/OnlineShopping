@@ -22,7 +22,7 @@ public class ProductTestCase {
 		context.refresh();
 		productDAO = (ProductDAO) context.getBean("productDAO");
 	}
-	/*
+/*	
 	@Test
 	public void testCRUDProduct() {
 
@@ -39,9 +39,9 @@ public class ProductTestCase {
 		assertEquals("Something went wrong while inserting a new product!",
 				true, productDAO.add(product));
 
-			
-				//reading and updating product
-		
+	}			
+		*/		//reading and updating product
+/*		
 				product = productDAO.get(3);
 			// product.setName("Galexy S8");
 			//	 product.setActive(false);
@@ -90,5 +90,6 @@ public class ProductTestCase {
 				 7, productDAO.getLatestActiveProduct
 				(7).size());
 		}
+
 */
 		}
