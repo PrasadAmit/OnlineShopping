@@ -2,9 +2,12 @@ package com.ak.onlineshopping.controller;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,15 +37,17 @@ public class ManagementController {
 	@Autowired
 	public ProductDAO productDAO;
 
+	private static final Logger logger=LoggerFactory.getLogger(ManagementController.class);
+	
 	// Showing the Product Saved in Database
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name = "operation", required = false) String operation) {
 
 		ModelAndView mav = new ModelAndView("page");
-
 		mav.addObject("userClickManageProducts", true);
 		mav.addObject("{title}", "Manage Products");
+
 		Product nProduct = new Product();
 
 		// set few of the fields
@@ -78,8 +83,11 @@ public class ManagementController {
 	// Handling product submission
 
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results,
-			Model model, HttpServletRequest request) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, 
+			BindingResult results, Model model, HttpServletRequest request) {
+
+		logger.info(mProduct.toString());
+
 		if (mProduct.getId() == 0) {
 			new ProductValidator().validate(mProduct, results);
 		} else {
@@ -87,7 +95,6 @@ public class ManagementController {
 				new ProductValidator().validate(mProduct, results);
 			}
 		}
-
 		// check for there are any errors
 		if (results.hasErrors()) {
 			model.addAttribute("userClickManageProducts", true);
@@ -123,7 +130,6 @@ public class ManagementController {
 
 		return (isActive) ? "You have successfully deactivate the product with id" + product.getId()
 				: "You have successfully activate the product with id" + product.getId();
-
 	}
 
 	// To handle category submission
@@ -131,7 +137,6 @@ public class ManagementController {
 	public String handleCategorySubmission(@ModelAttribute Category category) {
 		// add the new category
 		categoryDAO.add(category);
-
 		return "redirect:/manage/products?operation=category";
 	}
 

@@ -23,13 +23,12 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 		String selectActiveCategory = "FROM Category WHERE active = :active";
 
-		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
-		query.setParameter("active", true);
+		Query  query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+			   query.setParameter("active", true);
 		return query.getResultList();
 	}
 
 	//	Getting single category based on id
-	
 	@Override
 	public Category get(int id) {
 		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));

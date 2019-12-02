@@ -23,8 +23,8 @@ public class ProductDAOImpl implements ProductDAO{
 	public Product get(int productId) {
 		try {
 		return sessionFactory
- 			.getCurrentSession()
-				.get(Product.class, Integer.valueOf(productId));
+				  .getCurrentSession()
+					  .get(Product.class, Integer.valueOf(productId));
 	}catch(Exception ex) {
 		ex.printStackTrace();
 	}
@@ -72,8 +72,7 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public boolean delete(Product product) {
 		try {
-			product.setActive(false);
-			
+			product.setActive(false);			
 			return this.update(product);
 		}catch(Exception ex) {
 			ex.printStackTrace();

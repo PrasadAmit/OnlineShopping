@@ -4,6 +4,8 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
@@ -16,6 +18,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
+
 
 <title>Online Shopping - ${title}</title>
 
@@ -42,37 +47,14 @@
 
 <body>
 
-		<!-- Navigation   -->
 	<div class="wrapper">
 
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<!--Brand and toggle are grouped for better mobile display -->
-				<div class="navbar-header">
-					<a class="navbar-brand" href="${contextRoot}/home">Home</a>
-				</div>
-			</div>
-		</nav>
+		<!-- Navigation   -->
+		<%@include file="flows-navbar.jsp" %>
+
+		<!-- Page Content -->
 		<div class="content">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12"></div>
-					<div class="jumbotron">
-						<h1>${errorTitle}</h1>
-							<hr/>						
-						<blockquote style="word-wrap:break-word">
-							${errorDescription}
-						</blockquote>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Footers Comes here -->
-		<%@include file="./shared/footer.jsp"%>
-
-	</div>
+</div>
+</div>
 </body>
-
 </html>

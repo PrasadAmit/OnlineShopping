@@ -1,5 +1,7 @@
 package com.ak.OnlineShoppingBackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,28 +10,51 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_detail")
-public class User {
-	/*
-	 * Private field for User
-	 */
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name = "first_name")
+	//@NotBlank(message="Please enter the first name")
 	private String firstName;
+	
 	@Column(name = "last_name")
+	//@NotBlank(message="Please enter the last name")
 	private String lastName;
+	
 	@Column(name = "email")
+	//@NotBlank(message="Please enter the email")
 	private String email;
+	
 	@Column(name = "contact_number")
+	//@NotBlank(message="Please enter the contact number")
 	private String contactNumber;
+	
 	private String role;
+	
+	//@NotBlank(message="Please enter the password")
 	private String password;
+	
 	private boolean enabled = true;
-
+	
+	//confirm password transition field
+	@Transient
+	private String confirmPassword;
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	// add OneToOne mapping for cart
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Cart cart;

@@ -30,5 +30,4 @@ public class ProductValidator implements Validator {
 			errors.rejectValue("file", null, "Please use only an image file for upload!");
 		return;
 	}
-
 }

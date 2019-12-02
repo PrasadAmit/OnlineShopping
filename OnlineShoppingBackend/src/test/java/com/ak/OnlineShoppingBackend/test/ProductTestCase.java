@@ -67,7 +67,6 @@ public class ProductTestCase {
 		}
 
 	
-	
 	@Test
 	public void testListActiveProductsByCategory() {
 	

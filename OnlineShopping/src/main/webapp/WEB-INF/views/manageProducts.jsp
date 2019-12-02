@@ -1,5 +1,4 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="container">
@@ -78,8 +77,7 @@
 
 						<!-- 	 File element for Image upLoad -->
 						<div class="form-group">
-							<label class="control-label col-md-4" for="file">Select an
-								Image:</label>
+							<label class="control-label col-md-4" for="file">Select an Image:</label>
 							<div class="col-md-8">
 								<sf:input type="file" path="file" id="file" class="form-control" />
 								<sf:errors path="file" cssClass="help-block" element="em" />
@@ -134,7 +132,7 @@
 	</div>
 
 	<div class="col-xs-12">
-		<div style="overflow: auto">
+		<div style="overflow:auto">
 
 			<!-- Admin id product table -->
 

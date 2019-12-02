@@ -18,12 +18,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 
 <title>Online Shopping - ${title}</title>
 
 <script>
 	window.menu = '${title}';
-
 	window.contextRoot = '${contextRoot}'
 </script>
 
@@ -41,11 +42,9 @@
 <link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
-
 <body>
 
 	<div class="wrapper">
-
 		<!-- Navigation   -->
 		<%@include file="./shared/navbar.jsp"%>
 
@@ -68,7 +67,8 @@
 			</c:if>
 
 			<!--Loading AllProducts Page on User Click  -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 
@@ -99,7 +99,6 @@
 		<!--  JQuery Validator Plugin-->
 		<script src="${js}/jquery.validate.js"></script>
 
-
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/bootstrap.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
@@ -118,5 +117,4 @@
 
 	</div>
 </body>
-
 </html>

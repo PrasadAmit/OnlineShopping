@@ -30,7 +30,18 @@ $(function(){
 		break;
 }
 	
-	//code for jquery dataTables
+	//TO TACKLE THE CSRF TOKEN
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');	
+	
+	if(token.length > 0 && header.length > 0){
+		//set the token header for  ajax the request
+		$(document).ajaxSend(function(e,xhr, options){
+			xhr.setRequestHeader(header,token);
+		});
+	}
+	
+	//CODE FOR JQUERY DATATABLES
 	
 	var $table = $('#productListTable');
 	
@@ -109,17 +120,18 @@ $(function(){
 		
 		setTimeout(function(){
 			$alert.fadeOut('slow');
-			}, 3000)	
+			}, 3000)	 
 	}
 	
-//---------------------------------------------------------
-	$('.switch input[type="checkbox"]') .on ('change',function(){
-	var chackbox=$(this);
-	var checked = checked.prop('checked');
+//----------------toggle switch cofigure-----------------------------------------
+
+	$('.switch input[type="checkbox"]').on('change', function(){
+	var checkbox= $(this);
+	var checked = checkbox.prop('checked');
 	var dMsg=(checked)?'You want to activate the product?':
-			'You want to deactivate the product?';
+						'You want to deactivate the product?';
+	var value=checkbox.prop('value');
 	
-	var value=checked.prop('value');
 	bootbox.confirm({
 		size: 'medium', 
 		title:'Product Activation & Deactivation',
@@ -184,9 +196,7 @@ if($adminProductsTable.length){
 						return '<span style="color:red">Out of Stock!</span>';
 					}
 					return data;	
-				}
-				},
-				{
+				}},{
 					data:'unitPrice',
 						mRender: function(data,type,row){
 							return '&#8377;  ' + data
@@ -306,6 +316,46 @@ if($categoryForm.length){
 	});
 }
 //-------------------------------
+
+//--------------------------
+//validation Code for login
+
+var $loginForm = $('#loginForm');
+
+if($loginForm.length){
+	$loginForm.validate({
+	
+		rules: {
+			username:{
+				required: true,
+				email:true
+			},
+			password: {
+				required: true
+			}	
+		},
+		messages: {
+			username:{
+				required:'Please enter the  user name!',
+				email: 'Please enter valid email address!'
+			},
+		password:{
+			required: 'Please enter the password!'
+		}
+		},
+		errorElement: 'em',
+		errorPlacement: function(error,element){
+			//add the class of help-block 
+			error.addClass('help-block');
+			//add the error element after the input elements
+			error.insertAfter(element);
+		}
+	});
+}
+//-------------------------------
+
+
+
 });
 
 

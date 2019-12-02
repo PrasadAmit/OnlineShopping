@@ -13,13 +13,14 @@
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<javaee.version>7.0</javaee.version>
 		<spring.version>4.3.20.RELEASE</spring.version>
+		<spring.security.version>4.2.5.RELEASE</spring.security.version>
 
 	</properties>
 
 	<build>
 		<finalName>OnlineShopping</finalName>
 
-		<!-- Java connections -->
+		<!-- MAVEN AND JAVA VERSION -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -31,18 +32,37 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
+	<!-- LINKING BACKEND PROJECT -->
 
-		<!-- Linking Backend Project -->
 		<dependency>
 			<groupId>com.ak</groupId>
 			<artifactId>OnlineShoppingBackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+		<!-- SPRING SECURITY JARS -->
 
-		<!-- spring Jars -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+	
+		<!-- SPRING JARS -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -50,7 +70,7 @@
 			<version>${spring.version}</version>
 			<exclusions>
 				<exclusion>
-				  	<groupId>commons-logging</groupId>
+					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
@@ -62,9 +82,16 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-
+		<!--SPRING WEBFLOW -->
+		
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>2.4.4.RELEASE</version>
+		</dependency>
 
 		<!-- JAVA-EE-API -->
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -72,15 +99,16 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- jstl -->
+		<!-- JSTL -->
+
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
 
-
 		<!-- J-UNIT -->
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

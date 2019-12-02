@@ -8,7 +8,6 @@ CREATE TABLE `spgdb`.`category` (
    CONSTRAINT pk_category_id  PRIMARY KEY (id)  
   );
 
-
 CREATE TABLE `spgdb`.`product` (
 
 `id` INT NOT NULL AUTO_INCREMENT,
@@ -84,11 +83,11 @@ CONSTRAINT fk_cartline_cart_id FOREIGN KEY (cart_id) REFERENCES cart(id),
 CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id) REFERENCES product(id)
 
 );
+INSERT INTO spgdb.product values(1,1,'Apple',1,'PROABC234HEX','This is latest iPhone','iPhone I5',1,4,1,35000,0);
+INSERT INTO spgdb.product values(2,1,'Samsung',2,'PROCDE123MNX','This is latest samsung','Galexy G5',2,4,2,21000,0);
+INSERT INTO spgdb.product values(3,1,'Samsung',3,'PROGHE456GNY','This is latest samsung', 'Macbook M1',3,3,2,18000,0);
+INSERT INTO spgdb.product values(4,1,'Nokia',2,'PROFGH123JAK', 'This is latest nokia','NOKIA  N5',4,3,3,22000,0);
 
-INSERT INTO spgdb.product values(1,'PROABC123DEX', 'iPhone I5','apple','This is latest iPhone',20000,5,1,1,2,0,0);
-INSERT INTO spgdb.product values(2,'PROCDE123MNX', 'Galexy G5','samsung','This is latest samsung',21000,2,1,3,1,0,0);
-INSERT INTO spgdb.product values(3,'PROGHE456GNY', 'Macbook M1','samsung','This is latest samsung',98000,5,1,2,1,0,0);
-INSERT INTO spgdb.product values(4,'PROFGH123JAK', 'NOKIA  N5','nokia','This is latest nokia',22000,5,1,4,3,0,0);
 INSERT INTO spgdb.product values(5,'PROHEX123XBH', 'MOTOROLA M1','motorola','This is motorala',23000,1,1,2,3,0,0);
 INSERT INTO spgdb.product values(6,'PROKHL498ZXC', 'SONY S5','samsung','This is latest samsung',29000,2,1,4,1,0,0);
 INSERT INTO spgdb.product values(7,'PROHIL123TAX', 'KARBON K2','karbon','This is latest karbon',24000,5,1,3,2,0,0);
@@ -98,9 +97,12 @@ INSERT INTO spgdb.product values(10,'PROMNO123ZEN', 'REDMI R1','redmi','This is 
 INSERT INTO spgdb.product values(11,'PROPDC123XYZ', 'SONY S4','sony','This is latest sony',27000,5,1,1,3,0,0);
 INSERT INTO spgdb.product values(12,'PROGHE456GNY', 'SAMSUNG BIO','samsung','This is latest samsung',45000,2,1,3,1,0,0);
 
-INSERT INTO spgdb.user_detail values(1, 'virat', 'kohli', 'Admin', true, 'admin', 'vk@gmail.com', '7777777777');
-INSERT INTO spgdb.user_detail values(2, 'mahi', 'dhoni', 'Caption', true, 'abc123', 'md@gmail.com', '8888888888');
-INSERT INTO spgdb.user_detail values(3, 'rohit', 'sharma', 'supplier', true, '12345', 'rs@gmail.com','9999999999');
+INSERT INTO spgdb.user_detail values(1, '7777777777','st@gmail.com', 1,'sachin', 'tendi','$2y$12$TtA6FOy463hIZfq6XBQpCOikaIk0q79zN0fgb7WQE3ZDdDxD0yXSi
+','ADMIN');
+INSERT INTO spgdb.user_detail values(2, '8888888888','md@gmail.com', 1,'mahi', 'dhoni', '$2y$12$/L5/6IdgrZXTb50tlHURUO0zqYnmOsL8QB6e6tAV9vihM4T9KXIfy
+', 'USER');
+INSERT INTO spgdb.user_detail values(3, '9999999999','vk@gmail.com',1,'virat', 'kohli', '$2y$12$Igp069JGHreav84yVDNln.E6Qq5LXiEwbyGl2pmhgmcYJPUSLu6QC','SUPPLIER');
+INSERT INTO spgdb.user_detail values(4, '6666666666','rs@gmail.com',1,'rohit', 'sharma', '$2y$12$Igp069JGHreav84yVDNln.E6Qq5LXiEwbyGl2pmhgmcYJPUSLu6QC', 'SUPPLIER');
 
 INSERT INTO hbnetdb.category(name, description, image_url, is_active) values('Laptop', 'This is Laptop', CAt_1.png, 1);
 INSERT INTO hbnetdb.category(name, description, image_url, is_active) values('Radio', 'This is Radio', Cat_2.png, 1);

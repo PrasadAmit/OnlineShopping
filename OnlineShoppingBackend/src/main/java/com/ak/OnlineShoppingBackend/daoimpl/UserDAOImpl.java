@@ -1,6 +1,5 @@
 package com.ak.OnlineShoppingBackend.daoimpl;
 
-
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -23,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean addUser(User user) {
 		try {
-			sessionFactory.getCurrentSession().persist(user);  //update(user);
+			sessionFactory.getCurrentSession().persist(user); 
  			return true;
 		}
 		catch(Exception ex){
@@ -48,9 +47,9 @@ public class UserDAOImpl implements UserDAO {
 		String selectQuery="FROM  User WHERE email = :email";
 		try {
 			return sessionFactory.getCurrentSession()
-			.createQuery(selectQuery, User.class)
-			.setParameter("email", email)
-				.getSingleResult();
+					.createQuery(selectQuery, User.class)
+						.setParameter("email", email)
+							.getSingleResult();
 			}
 		catch(Exception ex){
 			ex.printStackTrace();		
@@ -71,8 +70,6 @@ public class UserDAOImpl implements UserDAO {
 			ex.printStackTrace();		
 		return null;
 		}
-		
-	
 	}
 	@Override
 	public List<Address> listShippingAddress(User user) {
@@ -88,5 +85,46 @@ public class UserDAOImpl implements UserDAO {
 			ex.printStackTrace();		
 		return null;
 		}
+	}
+	@Override
+	public Address getBillingAddress(int userId) {
+			String selectQuery="FROM  Address WHERE userId= :userId AND billing = :billing";
+			try {
+				return sessionFactory.getCurrentSession()
+				.createQuery(selectQuery, Address.class)
+				.setParameter("userId", userId)
+				.setParameter("billing", true)
+				.getSingleResult();
+				}
+			catch(Exception ex){
+				ex.printStackTrace();		
+			return null;
+			}
+	}
+	@Override
+	public List<Address> listShippingAddress(int userId) {
+			String selectQuery="FROM  Address WHERE userId= :userId AND shipping = :shipping";
+			try {
+				return sessionFactory.getCurrentSession()
+				.createQuery(selectQuery, Address.class)
+				.setParameter("userId", userId)
+				.setParameter("shipping", true)
+				.getResultList();
+				}
+			catch(Exception ex){
+				ex.printStackTrace();		
+			return null;
+			}
+	}
+	@Override
+	public boolean updateCart(Cart cart) {
+		try {
+			sessionFactory.getCurrentSession().update(cart);
+			return true;
+			}
+		catch(Exception ex){
+			ex.printStackTrace();		
+		return false;
 		}
+	}
 }
